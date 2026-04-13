@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiernitos Asiáticos 🐾 | K-pop & Kawaii Shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink:      #FF6B9D;
+  --pink-light:#FFB3CC;
+  --pink-pale: #FFF0F5;
+  --lilac:     #C084FC;
+  --lilac-soft:#EDE9FE;
+  --mint:      #67E8F9;
+  --mint-soft: #ECFEFF;
+  --yellow:    #FDE68A;
+  --peach:     #FDBA74;
+  --white:     #FFFFFF;
+  --gray:      #6B7280;
+  --dark:      #1E1B2E;
+  --card-bg:   #FFFAFD;
+  --shadow:    0 4px 24px rgba(255,107,157,0.15);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Nunito',sans-serif;
+  background:#FFF8FC;
+  color:var(--dark);
+  overflow-x:hidden;
+}
+
+/* ─── SCROLLBAR ─────────────────────────────────── */
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:var(--pink-pale);}
+::-webkit-scrollbar-thumb{background:var(--pink);border-radius:10px;}
+
+/* ─── STARS / BUBBLES BG ─────────────────────────── */
+.stars{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(192,132,252,.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(255,107,157,.07) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(103,232,249,.05) 0%, transparent 60%);
+}
+.bubble{
+  position:fixed;border-radius:50%;animation:float linear infinite;opacity:.3;pointer-events:none;z-index:0;
+}
+@keyframes float{from{transform:translateY(100vh) scale(1);}to{transform:translateY(-120px) scale(.5);opacity:0;}}
+
+/* ─── NAV ────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(16px);
+  border-bottom:2px solid var(--pink-light);
+  padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  height:68px;
+  box-shadow:0 2px 20px rgba(255,107,157,.12);
+}
+.nav-logo{
+  font-family:'Fredoka One',cursive;
+  font-size:1.6rem;color:var(--pink);
+  display:flex;align-items:center;gap:8px;
+  text-decoration:none;
+}
+.nav-logo span{font-size:1.4rem;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{
+  text-decoration:none;color:var(--dark);font-weight:700;font-size:.95rem;
+  position:relative;padding-bottom:4px;transition:color .25s;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:0;left:0;width:0;height:2px;
+  background:var(--pink);border-radius:2px;transition:width .3s;
+}
+.nav-links a:hover{color:var(--pink);}
+.nav-links a:hover::after{width:100%;}
+.nav-cart{
+  background:var(--pink);color:#fff;border:none;
+  padding:9px 20px;border-radius:50px;font-weight:800;font-size:.9rem;
+  cursor:pointer;display:flex;align-items:center;gap:6px;
+  transition:transform .2s,box-shadow .2s;
+  font-family:'Nunito',sans-serif;
+}
+.nav-cart:hover{transform:scale(1.05);box-shadow:0 4px 18px rgba(255,107,157,.4);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+.hamburger span{display:block;width:24px;height:3px;background:var(--pink);border-radius:3px;transition:all .3s;}
+
+/* ─── HERO ────────────────────────────────────────── */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:100px 5% 60px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#fff8fc 0%,#fce7f3 40%,#ede9fe 70%,#ecfeff 100%);
+}
+.hero-content{
+  max-width:560px;z-index:2;
+  animation:slideUp .8s ease both;
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--yellow);color:#92400e;
+  padding:6px 16px;border-radius:50px;font-weight:800;font-size:.85rem;
+  margin-bottom:20px;animation:slideUp .8s .1s ease both;
+}
+.hero h1{
+  font-family:'Fredoka One',cursive;
+  font-size:clamp(2.4rem,6vw,4rem);
+  line-height:1.1;
+  color:var(--dark);
+  margin-bottom:18px;
+  animation:slideUp .8s .2s ease both;
+}
+.hero h1 .accent{
+  background:linear-gradient(135deg,var(--pink),var(--lilac));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero p{
+  font-size:1.1rem;color:var(--gray);line-height:1.7;
+  margin-bottom:32px;animation:slideUp .8s .3s ease both;
+}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:slideUp .8s .4s ease both;}
+.btn-primary{
+  background:linear-gradient(135deg,var(--pink),var(--lilac));
+  color:#fff;border:none;padding:14px 32px;border-radius:50px;
+  font-weight:800;font-size:1rem;cursor:pointer;
+  transition:transform .2s,box-shadow .2s;font-family:'Nunito',sans-serif;
+  text-decoration:none;display:inline-block;
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,107,157,.4);}
+.btn-secondary{
+  background:transparent;color:var(--pink);
+  border:2.5px solid var(--pink);padding:14px 32px;border-radius:50px;
+  font-weight:800;font-size:1rem;cursor:pointer;
+  transition:all .2s;font-family:'Nunito',sans-serif;
+  text-decoration:none;display:inline-block;
+}
+.btn-secondary:hover{background:var(--pink);color:#fff;}
+.hero-visual{
+  position:relative;z-index:2;flex-shrink:0;
+  animation:slideUp .8s .2s ease both;
+}
+.hero-circle{
+  width:380px;height:380px;border-radius:50%;
+  background:linear-gradient(135deg,#fce7f3,#ede9fe);
+  display:flex;align-items:center;justify-content:center;
+  font-size:10rem;
+  box-shadow:0 20px 60px rgba(255,107,157,.2),0 0 0 30px rgba(255,107,157,.06);
+  animation:bob 4s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-16px);}}
+.hero-wrap{display:flex;align-items:center;justify-content:center;gap:60px;width:100%;max-width:1100px;}
+.floating-tag{
+  position:absolute;background:#fff;border-radius:16px;padding:10px 16px;
+  box-shadow:var(--shadow);font-weight:700;font-size:.85rem;white-space:nowrap;
+  display:flex;align-items:center;gap:6px;animation:bob 3s ease-in-out infinite;
+}
+.ft1{top:15%;right:-10px;animation-delay:0s;}
+.ft2{bottom:20%;right:-30px;animation-delay:.8s;}
+.ft3{bottom:15%;left:-30px;animation-delay:1.4s;}
+
+/* ─── SECTION COMMONS ────────────────────────────── */
+section{position:relative;z-index:1;}
+.section-label{
+  text-align:center;margin-bottom:12px;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.section-label span{
+  background:linear-gradient(135deg,var(--pink),var(--lilac));
+  color:#fff;padding:4px 16px;border-radius:50px;
+  font-weight:800;font-size:.82rem;letter-spacing:.5px;text-transform:uppercase;
+}
+.section-title{
+  font-family:'Fredoka One',cursive;
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  text-align:center;color:var(--dark);margin-bottom:12px;
+}
+.section-sub{
+  text-align:center;color:var(--gray);font-size:1rem;
+  max-width:560px;margin:0 auto 48px;line-height:1.6;
+}
+
+/* ─── STATS BAR ──────────────────────────────────── */
+.stats{
+  background:linear-gradient(135deg,var(--pink),var(--lilac));
+  padding:32px 5%;display:flex;justify-content:center;gap:60px;flex-wrap:wrap;
+}
+.stat-item{text-align:center;color:#fff;}
+.stat-num{
+  font-family:'Fredoka One',cursive;font-size:2.4rem;
+  display:block;line-height:1;
+}
+.stat-label{font-size:.9rem;opacity:.88;font-weight:700;margin-top:4px;}
+
+/* ─── FEATURED ────────────────────────────────────── */
+.featured{padding:80px 5%;}
+.products-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:28px;max-width:1100px;margin:0 auto;
+}
+.product-card{
+  background:var(--card-bg);border-radius:24px;overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;
+  position:relative;border:2px solid transparent;
+}
+.product-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 16px 48px rgba(255,107,157,.22);
+  border-color:var(--pink-light);
+}
+.product-card a {
+  text-decoration: none;
+  color: inherit;
+}
+.product-card h3 {
+  font-family:'Fredoka One',cursive;font-size:1.2rem;margin-bottom:6px;
+  transition: color 0.2s;
+}
+.product-card h3:hover {
+  color: var(--pink);
+}
+.product-card .badge{
+  position:absolute;top:14px;left:14px;
+  background:var(--pink);color:#fff;
+  padding:4px 12px;border-radius:50px;font-weight:800;font-size:.78rem;z-index:2;
+}
+.product-card .badge.new{background:var(--lilac);}
+.product-card .badge.sale{background:#ef4444;}
+.product-img{
+  height:220px;display:flex;align-items:center;justify-content:center;
+  font-size:6rem;
+  background:linear-gradient(135deg,#fff0f5,#f5f3ff);
+  transition:transform .4s;
+}
+.product-card:hover .product-img{transform:scale(1.05);}
+.product-info{padding:20px;}
+.product-info p{color:var(--gray);font-size:.88rem;margin-bottom:14px;line-height:1.5;}
+.product-footer{display:flex;align-items:center;justify-content:space-between;}
+.price{font-weight:900;font-size:1.2rem;color:var(--pink);}
+.price s{color:var(--gray);font-size:.9rem;font-weight:600;}
+.add-btn{
+  background:linear-gradient(135deg,var(--pink),var(--lilac));
+  color:#fff;border:none;padding:8px 18px;border-radius:50px;
+  font-weight:800;font-size:.85rem;cursor:pointer;
+  transition:transform .2s;font-family:'Nunito',sans-serif;
+}
+.add-btn:hover{transform:scale(1.07);}
+.stars-rating{display:flex;gap:2px;margin-bottom:10px;}
+.star{color:var(--yellow);font-size:1rem;}
+
+/* ─── CATEGORIES ─────────────────────────────────── */
+.categories{padding:60px 5%;background:var(--lilac-soft);}
+.cat-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;max-width:900px;margin:0 auto;
+}
+.cat-card{
+  background:#fff;border-radius:20px;padding:32px 20px;text-align:center;
+  box-shadow:0 4px 20px rgba(192,132,252,.12);
+  cursor:pointer;transition:all .3s;border:2px solid transparent;
+  text-decoration:none;color:var(--dark);
+}
+.cat-card:hover{transform:translateY(-6px);border-color:var(--lilac);}
+.cat-icon{font-size:3rem;margin-bottom:12px;display:block;}
+.cat-card h3{font-family:'Fredoka One',cursive;font-size:1.15rem;margin-bottom:6px;}
+.cat-card p{color:var(--gray);font-size:.84rem;}
+
+/* ─── ABOUT ──────────────────────────────────────── */
+.about{
+  padding:90px 5%;
+  background:linear-gradient(135deg,#fff8fc 0%,#f5f3ff 100%);
+}
+.about-wrap{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+}
+.about-visual{
+  background:linear-gradient(135deg,#fce7f3,#ede9fe);
+  border-radius:30px;height:380px;
+  display:flex;align-items:center;justify-content:center;font-size:9rem;
+  box-shadow:var(--shadow);
+  animation:bob 5s ease-in-out infinite;
+}
+.about-text h2{
+  font-family:'Fredoka One',cursive;font-size:2.2rem;margin-bottom:16px;
+  background:linear-gradient(135deg,var(--pink),var(--lilac));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.about-text p{color:var(--gray);line-height:1.8;margin-bottom:16px;font-size:1rem;}
+.values{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;}
+.value-item{
+  background:#fff;border-radius:16px;padding:16px;
+  box-shadow:0 2px 12px rgba(255,107,157,.1);
+  display:flex;align-items:flex-start;gap:10px;
+}
+.value-icon{font-size:1.5rem;flex-shrink:0;}
+.value-item h4{font-size:.9rem;font-weight:800;margin-bottom:4px;}
+.value-item p{font-size:.82rem;color:var(--gray);line-height:1.4;}
+
+/* ─── BANDS SECTION ──────────────────────────────── */
+.bands{padding:70px 5%;background:#fff;}
+.bands-grid{
+  display:flex;gap:20px;justify-content:center;flex-wrap:wrap;
+  max-width:900px;margin:0 auto;
+}
+.band-pill{
+  background:linear-gradient(135deg,var(--pink-pale),var(--lilac-soft));
+  border:2px solid var(--pink-light);
+  border-radius:20px;padding:24px 32px;text-align:center;
+  min-width:200px;transition:all .3s;cursor:pointer;
+}
+.band-pill:hover{
+  background:linear-gradient(135deg,var(--pink),var(--lilac));
+  border-color:transparent;
+  transform:translateY(-4px);box-shadow:var(--shadow);
+}
+.band-pill:hover *{color:#fff!important;}
+.band-pill .band-emoji{font-size:2.8rem;display:block;margin-bottom:8px;}
+.band-pill h3{font-family:'Fredoka One',cursive;font-size:1.3rem;color:var(--dark);margin-bottom:4px;}
+.band-pill p{font-size:.84rem;color:var(--gray);}
+
+/* ─── PROMOTIONS ─────────────────────────────────── */
+.promos{padding:80px 5%;background:var(--mint-soft);}
+.promos-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  max-width:900px;margin:0 auto;
+}
+.promo-card{
+  border-radius:24px;padding:36px 32px;position:relative;overflow:hidden;
+  box-shadow:0 8px 32px rgba(0,0,0,.07);
+}
+.promo-card.pink{background:linear-gradient(135deg,#FF6B9D,#ff8fb3);}
+.promo-card.purple{background:linear-gradient(135deg,#a855f7,#C084FC);}
+.promo-card.yellow{background:linear-gradient(135deg,#f59e0b,#fbbf24);grid-column:span 2;}
+.promo-card *{color:#fff!important;}
+.promo-deco{
+  position:absolute;right:-20px;bottom:-20px;font-size:8rem;opacity:.2;
+}
+.promo-card .tag{
+  background:rgba(255,255,255,.25);display:inline-block;
+  padding:4px 12px;border-radius:50px;font-size:.8rem;font-weight:800;margin-bottom:12px;
+}
+.promo-card h3{font-family:'Fredoka One',cursive;font-size:1.6rem;margin-bottom:8px;}
+.promo-card p{font-size:.92rem;opacity:.9;margin-bottom:20px;line-height:1.6;}
+.promo-btn{
+  background:rgba(255,255,255,.25);border:2px solid rgba(255,255,255,.6);
+  color:#fff!important;padding:10px 24px;border-radius:50px;
+  font-weight:800;font-size:.9rem;cursor:pointer;
+  display:inline-block;text-decoration:none;
+  font-family:'Nunito',sans-serif;border:2px solid rgba(255,255,255,.6);
+  transition:background .2s;
+}
+.promo-btn:hover{background:rgba(255,255,255,.4);}
+
+/* ─── HOW IT WORKS ───────────────────────────────── */
+.how{padding:80px 5%;background:#fff;}
+.steps{
+  display:flex;gap:30px;justify-content:center;flex-wrap:wrap;
+  max-width:1000px;margin:0 auto;
+}
+.step{
+  background:var(--card-bg);border-radius:24px;padding:32px 24px;
+  text-align:center;flex:1;min-width:200px;max-width:240px;
+  box-shadow:var(--shadow);border:2px solid var(--pink-pale);
+  transition:transform .3s;
+}
+.step:hover{transform:translateY(-6px);}
+.step-num{
+  width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,var(--pink),var(--lilac));
+  color:#fff;font-family:'Fredoka One',cursive;font-size:1.4rem;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;
+}
+.step-icon{font-size:2.2rem;margin-bottom:12px;}
+.step h3{font-family:'Fredoka One',cursive;font-size:1.1rem;margin-bottom:8px;}
+.step p{color:var(--gray);font-size:.87rem;line-height:1.5;}
+
+/* ─── TESTIMONIALS ───────────────────────────────── */
+.testimonials{padding:80px 5%;background:linear-gradient(135deg,#fce7f3,#ede9fe);}
+.reviews-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:22px;max-width:1000px;margin:0 auto;
+}
+.review{
+  background:#fff;border-radius:20px;padding:28px;
+  box-shadow:0 4px 20px rgba(255,107,157,.1);
+}
+.reviewer{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.avatar{
+  width:46px;height:46px;border-radius:50%;font-size:1.5rem;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--pink-pale),var(--lilac-soft));
+  border:2px solid var(--pink-light);flex-shrink:0;
+}
+.reviewer-info h4{font-weight:800;font-size:.95rem;}
+.reviewer-info span{color:var(--gray);font-size:.82rem;}
+.review-text{color:var(--gray);font-size:.92rem;line-height:1.6;font-style:italic;}
+.review-text::before{content:'"';font-size:2rem;color:var(--pink);line-height:0;vertical-align:-.5rem;margin-right:4px;}
+
+/* ─── FAQ ────────────────────────────────────────── */
+.faq{padding:80px 5%;background:var(--pink-pale);}
+.faq-wrap{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:16px;}
+.faq-item{background:#fff;border-radius:16px;padding:24px;box-shadow:var(--shadow);}
+.faq-item h4{font-family:'Fredoka One',cursive;color:var(--pink);font-size:1.1rem;margin-bottom:10px;}
+.faq-item p{color:var(--gray);font-size:0.95rem;line-height:1.5;}
+
+/* ─── CONTACT ────────────────────────────────────── */
+.contact{padding:90px 5%;background:#fff;}
+.contact-wrap{
+  max-width:1000px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;
+}
+.contact-info h2{
+  font-family:'Fredoka One',cursive;font-size:2rem;
+  color:var(--dark);margin-bottom:16px;
+}
+.contact-info p{color:var(--gray);line-height:1.7;margin-bottom:28px;}
+.contact-details{display:flex;flex-direction:column;gap:16px;}
+.contact-item{
+  display:flex;align-items:flex-start;gap:14px;
+  background:var(--pink-pale);border-radius:16px;padding:16px;
+}
+.contact-item .ci-icon{font-size:1.5rem;flex-shrink:0;}
+.contact-item h4{font-weight:800;font-size:.9rem;margin-bottom:3px;}
+.contact-item p{color:var(--gray);font-size:.87rem;}
+.social-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
+.social-btn{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 18px;border-radius:50px;font-weight:800;font-size:.88rem;
+  text-decoration:none;transition:transform .2s,box-shadow .2s;
+  border:2px solid transparent;
+}
+.social-btn:hover{transform:translateY(-3px);}
+.s-insta{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;}
+.s-tiktok{background:#000;color:#fff;}
+.s-twitter{background:#1DA1F2;color:#fff;}
+.contact-form{
+  background:var(--card-bg);border-radius:24px;padding:36px;
+  box-shadow:var(--shadow);
+}
+.form-title{font-family:'Fredoka One',cursive;font-size:1.5rem;margin-bottom:24px;color:var(--dark);}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-weight:700;font-size:.88rem;margin-bottom:6px;color:var(--dark);}
+.form-group input,
+.form-group textarea,
+.form-group select{
+  width:100%;padding:12px 16px;border:2px solid var(--pink-pale);border-radius:14px;
+  font-family:'Nunito',sans-serif;font-size:.95rem;color:var(--dark);
+  background:#fff;transition:border-color .25s;outline:none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{border-color:var(--pink);}
+.form-group textarea{resize:vertical;min-height:110px;}
+.form-submit{
+  width:100%;background:linear-gradient(135deg,var(--pink),var(--lilac));
+  color:#fff;border:none;padding:14px;border-radius:50px;
+  font-weight:900;font-size:1rem;cursor:pointer;
+  font-family:'Nunito',sans-serif;transition:transform .2s,box-shadow .2s;
+}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,157,.4);}
+
+/* ─── SHIPPING ───────────────────────────────────── */
+.shipping{
+  padding:50px 5%;
+  background:linear-gradient(135deg,var(--pink),var(--lilac));
+}
+.shipping-grid{
+  display:flex;gap:30px;justify-content:center;flex-wrap:wrap;
+  max-width:900px;margin:0 auto;
+}
+.ship-item{
+  text-align:center;color:#fff;flex:1;min-width:160px;
+}
+.ship-icon{font-size:2.5rem;display:block;margin-bottom:10px;}
+.ship-item h4{font-family:'Fredoka One',cursive;font-size:1.1rem;margin-bottom:4px;}
+.ship-item p{font-size:.86rem;opacity:.9;}
+
+/* ─── NEWSLETTER ─────────────────────────────────── */
+.newsletter{
+  padding:80px 5%;background:#1E1B2E;text-align:center;
+}
+.newsletter h2{
+  font-family:'Fredoka One',cursive;font-size:2.2rem;color:#fff;margin-bottom:12px;
+}
+.newsletter p{color:rgba(255,255,255,.7);margin-bottom:30px;font-size:1rem;}
+.newsletter-form{
+  display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center;
+}
+.newsletter-form input{
+  flex:1;min-width:200px;padding:14px 20px;border:none;border-radius:50px;
+  font-family:'Nunito',sans-serif;font-size:.95rem;outline:none;
+}
+.newsletter-form button{
+  background:linear-gradient(135deg,var(--pink),var(--lilac));
+  color:#fff;border:none;padding:14px 28px;border-radius:50px;
+  font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;
+  transition:transform .2s;white-space:nowrap;
+}
+.newsletter-form button:hover{transform:scale(1.04);}
+
+/* ─── FOOTER ─────────────────────────────────────── */
+footer{
+  background:#13102A;padding:50px 5% 24px;
+}
+.footer-wrap{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;
+}
+.footer-brand .logo-f{
+  font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--pink);
+  display:flex;align-items:center;gap:8px;margin-bottom:14px;
+}
+.footer-brand p{color:rgba(255,255,255,.55);font-size:.9rem;line-height:1.7;margin-bottom:18px;}
+.footer-col h4{color:#fff;font-weight:800;margin-bottom:16px;font-size:.95rem;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:10px;}
+.footer-col ul li a{
+  color:rgba(255,255,255,.55);text-decoration:none;font-size:.88rem;
+  transition:color .2s;
+}
+.footer-col ul li a:hover{color:var(--pink);}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.08);padding-top:22px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+}
+.footer-bottom p{color:rgba(255,255,255,.35);font-size:.82rem;}
+.footer-hearts{color:var(--pink);font-size:.82rem;}
+
+/* ─── BACK TO TOP ────────────────────────────────── */
+#back-top{
+  position:fixed;bottom:30px;right:30px;z-index:99;
+  width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,var(--pink),var(--lilac));
+  color:#fff;border:none;font-size:1.2rem;cursor:pointer;
+  box-shadow:0 4px 18px rgba(255,107,157,.4);
+  display:none;align-items:center;justify-content:center;
+  transition:transform .2s;
+}
+#back-top:hover{transform:scale(1.1);}
+#back-top.visible{display:flex;}
+
+/* ─── TOAST ──────────────────────────────────────── */
+.toast{
+  position:fixed;bottom:90px;right:30px;z-index:200;
+  background:#fff;border-left:4px solid var(--pink);
+  border-radius:12px;padding:14px 20px;
+  box-shadow:0 8px 30px rgba(0,0,0,.12);
+  font-weight:700;font-size:.9rem;
+  transform:translateX(120%);transition:transform .4s;
+}
+.toast.show{transform:translateX(0);}
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media(max-width:900px){
+  .hero-wrap{flex-direction:column;text-align:center;gap:30px;}
+  .hero-content{max-width:100%;}
+  .hero-btns{justify-content:center;}
+  .hero-circle{width:260px;height:260px;font-size:7rem;}
+  .ft1,.ft2,.ft3{display:none;}
+  .about-wrap{grid-template-columns:1fr;}
+  .contact-wrap{grid-template-columns:1fr;}
+  .footer-wrap{grid-template-columns:1fr 1fr;}
+  .promos-grid{grid-template-columns:1fr;}
+  .promo-card.yellow{grid-column:span 1;}
+  .values{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .stats{gap:30px;}
+  .footer-wrap{grid-template-columns:1fr;}
+  .hero-circle{width:200px;height:200px;font-size:5rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="stars"></div>
+<div class="bubble" style="width:80px;height:80px;background:linear-gradient(135deg,#FF6B9D,#C084FC);left:5%;animation-duration:14s;animation-delay:0s;"></div>
+<div class="bubble" style="width:50px;height:50px;background:linear-gradient(135deg,#67E8F9,#C084FC);left:20%;animation-duration:20s;animation-delay:3s;"></div>
+<div class="bubble" style="width:100px;height:100px;background:linear-gradient(135deg,#FDE68A,#FF6B9D);left:70%;animation-duration:18s;animation-delay:7s;"></div>
+<div class="bubble" style="width:60px;height:60px;background:linear-gradient(135deg,#C084FC,#67E8F9);left:85%;animation-duration:16s;animation-delay:2s;"></div>
+
+<nav id="navbar">
+  <a href="#inicio" class="nav-logo"><span>🧸</span> Tiernitos Asiáticos</a>
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#catalogo">Catálogo</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#promos">Promos</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <button class="nav-cart" onclick="showToast('🛒 ¡Carrito próximamente!')">🛒 Mi Carrito <span id="cart-count" style="background:rgba(255,255,255,.3);border-radius:50px;padding:1px 8px;font-size:.8rem;">0</span></button>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero" id="inicio">
+  <div class="hero-wrap">
+    <div class="hero-content">
+      <div class="hero-badge">✨ Nueva colección disponible</div>
+      <h1>Tu tienda <span class="accent">kawaii</span> de K-pop favorita 🐾</h1>
+      <p>Peluches adorables, mini peluches coleccionables y llaveros inspirados en BTS, STRAY KIDS y la cultura asiática. ¡Encuentra el producto perfecto para ti o como regalo!</p>
+      <div class="hero-btns">
+        <a href="#catalogo" class="btn-primary">🛍️ Ver Catálogo</a>
+        <a href="#promos" class="btn-secondary">🎁 Ver Promos</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-circle">🧸</div>
+      <div class="floating-tag ft1">⭐ +500 fans felices</div>
+      <div class="floating-tag ft2">🚚 Envío a todo México</div>
+      <div class="floating-tag ft3">💝 100% Originales</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat-item">
+    <span class="stat-num">+500</span>
+    <div class="stat-label">Clientes Felices</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">+80</span>
+    <div class="stat-label">Productos</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">2</span>
+    <div class="stat-label">Grupos K-pop</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">4.9★</span>
+    <div class="stat-label">Calificación</div>
+  </div>
+</div>
+
+<section class="categories" id="categorias">
+  <div class="section-label"><span>🗂️ Explora</span></div>
+  <h2 class="section-title">Nuestras Categorías</h2>
+  <p class="section-sub">Encuentra exactamente lo que buscas. Colecciones para cada fan del K-pop.</p>
+  <div class="cat-grid">
+    <a href="#peluches" class="cat-card">
+      <span class="cat-icon">🧸</span>
+      <h3>Peluches K-pop</h3>
+      <p>Los más adorables de BTS y Stray Kids</p>
+    </a>
+    <a href="#mini" class="cat-card">
+      <span class="cat-icon">🐣</span>
+      <h3>Mini Peluches</h3>
+      <p>Coleccionables pequeños y tiernos</p>
+    </a>
+    <a href="#llaveros" class="cat-card">
+      <span class="cat-icon">🔑</span>
+      <h3>Llaveros</h3>
+      <p>Accesorios kawaii para llevar contigo</p>
+    </a>
+    <a href="#contacto" class="cat-card">
+      <span class="cat-icon">✏️</span>
+      <h3>Personalizados</h3>
+      <p>Pedidos especiales a tu medida</p>
+    </a>
+  </div>
+</section>
+
+<section class="featured" id="catalogo">
+  <div class="section-label"><span>🌟 Destacados</span></div>
+  <h2 class="section-title">Productos Más Amados</h2>
+  <p class="section-sub">Nuestros peluches más queridos por la comunidad K-pop. ¡Haz tuyo el tuyo antes de que se agoten!</p>
+  <div class="products-grid">
+
+    <div class="product-card" id="peluches">
+      <div class="badge new">NUEVO</div>
+      <a href="producto_1_jin.html">
+        <div class="product-img">🧸</div>
+      </a>
+      <div class="product-info">
+        <div class="stars-rating">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          <span style="color:var(--gray);font-size:.8rem;margin-left:4px;">(48)</span>
+        </div>
+        <a href="producto_1_jin.html">
+          <h3>Peluche BTS — Jin</h3>
+        </a>
+        <p>Peluche de tela suave con diseño inspirado en Jin de BTS. ¡Ideal para coleccionar!</p>
+        <div class="product-footer">
+          <div class="price">$289 MXN</div>
+          <button class="add-btn" onclick="addToCart()">+ Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="badge">POPULAR</div>
+      <a href="producto_2_felix.html">
+        <div class="product-img">🐺</div>
+      </a>
+      <div class="product-info">
+        <div class="stars-rating">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          <span style="color:var(--gray);font-size:.8rem;margin-left:4px;">(63)</span>
+        </div>
+        <a href="producto_2_felix.html">
+          <h3>Peluche Stray Kids — Felix</h3>
+        </a>
+        <p>Diseño kawaii de Felix con accesorios característicos. Edición especial limitada.</p>
+        <div class="product-footer">
+          <div class="price">$319 MXN</div>
+          <button class="add-btn" onclick="addToCart()">+ Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" id="mini">
+      <div class="badge sale">OFERTA</div>
+      <a href="producto_3_minibts.html">
+        <div class="product-img">🐥</div>
+      </a>
+      <div class="product-info">
+        <div class="stars-rating">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star" style="color:#ddd;">★</span>
+          <span style="color:var(--gray);font-size:.8rem;margin-left:4px;">(27)</span>
+        </div>
+        <a href="producto_3_minibts.html">
+          <h3>Mini Set BTS x3</h3>
+        </a>
+        <p>Set coleccionable de 3 mini peluches. Perfectos para decorar tu escritorio.</p>
+        <div class="product-footer">
+          <div class="price">$199 <s style="color:var(--gray)">$270</s></div>
+          <button class="add-btn" onclick="addToCart()">+ Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" id="llaveros">
+      <div class="badge new">NUEVO</div>
+      <a href="producto_4_bangchan.html">
+        <div class="product-img">🔑</div>
+      </a>
+      <div class="product-info">
+        <div class="stars-rating">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          <span style="color:var(--gray);font-size:.8rem;margin-left:4px;">(39)</span>
+        </div>
+        <a href="producto_4_bangchan.html">
+          <h3>Llavero Stray Kids — Bang Chan</h3>
+        </a>
+        <p>Llavero de peluche con detalles bordados. Resistente y ultratierno.</p>
+        <div class="product-footer">
+          <div class="price">$149 MXN</div>
+          <button class="add-btn" onclick="addToCart()">+ Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="badge">POPULAR</div>
+      <a href="producto_5_jungkook.html">
+        <div class="product-img">💜</div>
+      </a>
+      <div class="product-info">
+        <div class="stars-rating">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          <span style="color:var(--gray);font-size:.8rem;margin-left:4px;">(55)</span>
+        </div>
+        <a href="producto_5_jungkook.html">
+          <h3>Peluche BTS — Jungkook</h3>
+        </a>
+        <p>El favorito de muchos fans. Tela ultra suave con detalles únicos de Jungkook.</p>
+        <div class="product-footer">
+          <div class="price">$289 MXN</div>
+          <button class="add-btn" onclick="addToCart()">+ Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="badge sale">OFERTA</div>
+      <a href="producto_6_pack.html">
+        <div class="product-img">⭐</div>
+      </a>
+      <div class="product-info">
+        <div class="stars-rating">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          <span style="color:var(--gray);font-size:.8rem;margin-left:4px;">(42)</span>
+        </div>
+        <a href="producto_6_pack.html">
+          <h3>Pack Llaveros x5 Mix</h3>
+        </a>
+        <p>Pack sorpresa de 5 llaveros kawaii. Personajes variados de K-pop y cultura asiática.</p>
+        <div class="product-footer">
+          <div class="price">$349 <s style="color:var(--gray)">$450</s></div>
+          <button class="add-btn" onclick="addToCart()">+ Agregar</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="bands">
+  <div class="section-label"><span>🎶 K-pop</span></div>
+  <h2 class="section-title">Nuestros Grupos</h2>
+  <p class="section-sub">Productos inspirados en los artistas que mueven al mundo.</p>
+  <div class="bands-grid">
+    <div class="band-pill">
+      <span class="band-emoji">💜</span>
+      <h3>BTS</h3>
+      <p>Bangtan Sonyeondan — 7 members</p>
+    </div>
+    <div class="band-pill">
+      <span class="band-emoji">⭐</span>
+      <h3>STRAY KIDS</h3>
+      <p>SKZ — 8 members</p>
+    </div>
+    <div class="band-pill">
+      <span class="band-emoji">🌸</span>
+      <h3>Próximamente</h3>
+      <p>Nuevos grupos en camino</p>
+    </div>
+  </div>
+</section>
+
+<section class="promos" id="promos">
+  <div class="section-label"><span>🎁 Ofertas</span></div>
+  <h2 class="section-title">Promociones Especiales</h2>
+  <p class="section-sub">¡No te pierdas nuestras ofertas exclusivas! Tiempo limitado.</p>
+  <div class="promos-grid">
+    <div class="promo-card pink">
+      <div class="tag">🔥 Limitado</div>
+      <h3>2x1 en Mini Peluches</h3>
+      <p>Compra dos mini peluches y paga solo uno. Ideal para regalar a tu mejor amiga army.</p>
+      <a href="#catalogo" class="promo-btn">Ver productos →</a>
+      <div class="promo-deco">🧸</div>
+    </div>
+    <div class="promo-card purple">
+      <div class="tag">✨ Nuevo</div>
+      <h3>Nueva Colección SKZ</h3>
+      <p>Peluches de Stray Kids recién llegados. ¡Sé de los primeros en tenerlos!</p>
+      <a href="#catalogo" class="promo-btn">Descubrir →</a>
+      <div class="promo-deco">⭐</div>
+    </div>
+    <div class="promo-card yellow">
+      <div class="tag">🎉 Especial</div>
+      <h3>Envío GRATIS en compras mayores a $500 MXN</h3>
+      <p>Arma tu pedido favorito y nosotros lo llevamos hasta tu puerta sin costo adicional en toda la República Mexicana.</p>
+      <a href="#catalogo" class="promo-btn">¡Aprovechar ahora! →</a>
+      <div class="promo-deco">🚚</div>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="section-label"><span>📦 Proceso</span></div>
+  <h2 class="section-title">¿Cómo Comprar?</h2>
+  <p class="section-sub">En 4 simples pasos tu peluche favorito llega a tu hogar.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-icon">🔍</div>
+      <h3>Elige tu producto</h3>
+      <p>Navega por el catálogo y selecciona el peluche o llavero que más te guste.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-icon">📬</div>
+      <h3>Contáctanos</h3>
+      <p>Escríbenos por el formulario o nuestras redes sociales para confirmar tu pedido.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-icon">💳</div>
+      <h3>Realiza tu pago</h3>
+      <p>Pagos seguros por transferencia, tarjeta o efectivo en puntos autorizados.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-icon">🎁</div>
+      <h3>¡Recibe tu pedido!</h3>
+      <p>Enviamos con embalaje kawaii a toda la República Mexicana. ¡Sorpresa garantizada!</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="about-wrap">
+    <div class="about-visual">🌸</div>
+    <div class="about-text">
+      <div class="section-label" style="justify-content:flex-start;margin-bottom:12px;">
+        <span>💖 Nosotros</span>
+      </div>
+      <h2>Nuestra Historia</h2>
+      <p><strong>Tiernitos Asiáticos</strong> nació del amor por el K-pop y la cultura kawaii. Somos una tienda mexicana que cree que cada fan merece tener un pedacito de su idol favorito en casa.</p>
+      <p>Ubicados en Ecatepec, Estado de México, surgimos como un proyecto apasionado y hoy somos parte de la comunidad K-pop de nuestro país. Cada producto está pensado con cariño para que reflejes tu amor por BTS, Stray Kids y la cultura asiática.</p>
+      <div class="values">
+        <div class="value-item">
+          <span class="value-icon">🎯</span>
+          <div>
+            <h4>Misión</h4>
+            <p>Acercar a los fans mexicanos con productos auténticos y tiernos del mundo K-pop.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <span class="value-icon">🔭</span>
+          <div>
+            <h4>Visión</h4>
+            <p>Ser la tienda K-pop favorita de México, expandiendo nuestra colección cada temporada.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <span class="value-icon">💝</span>
+          <div>
+            <h4>Pasión</h4>
+            <p>Amamos el K-pop tanto como tú. Cada producto es elegido con dedicación.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <span class="value-icon">✅</span>
+          <div>
+            <h4>Calidad</h4>
+            <p>Materiales suaves y duraderos. Tu satisfacción es nuestra prioridad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="section-label"><span>💬 Reseñas</span></div>
+  <h2 class="section-title">Lo Que Dicen Nuestras Fans</h2>
+  <p class="section-sub">Miles de armys y stays confían en nosotros. ¡Lee sus experiencias!</p>
+  <div class="reviews-grid">
+    <div class="review">
+      <div class="reviewer">
+        <div class="avatar">🐱</div>
+        <div class="reviewer-info">
+          <h4>Valeria M.</h4>
+          <span>Ciudad de México ⭐⭐⭐⭐⭐</span>
+        </div>
+      </div>
+      <p class="review-text">¡Me encantó! El peluche de Jungkook llegó súper bien empacado y es más lindo en persona. El empaque kawaii fue un detalle hermoso.</p>
+    </div>
+    <div class="review">
+      <div class="reviewer">
+        <div class="avatar">🌸</div>
+        <div class="reviewer-info">
+          <h4>Daniela R.</h4>
+          <span>Monterrey ⭐⭐⭐⭐⭐</span>
+        </div>
+      </div>
+      <p class="review-text">Compré el pack de llaveros x5 y quedé enamorada. Todos son diferentes y súper bien hechos. Definitivamente regreso por más.</p>
+    </div>
+    <div class="review">
+      <div class="reviewer">
+        <div class="avatar">🐰</div>
+        <div class="reviewer-info">
+          <h4>Karen L.</h4>
+          <span>Guadalajara ⭐⭐⭐⭐⭐</span>
+        </div>
+      </div>
+      <p class="review-text">El envío fue rápido y el peluche de Felix de SKZ es una maravilla. El servicio al cliente es muy atento, respondieron todas mis dudas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="preguntas">
+  <div class="section-label"><span>❓ Dudas</span></div>
+  <h2 class="section-title">Preguntas Frecuentes</h2>
+  <p class="section-sub">¡Todo lo que necesitas saber antes de hacer tu pedido!</p>
+  <div class="faq-wrap">
+    <div class="faq-item">
+      <h4>¿Hacen envíos a todo México?</h4>
+      <p>¡Sí! Enviamos a toda la República Mexicana por medio de paqueterías seguras y con código de rastreo para que siempre sepas dónde va tu peluche.</p>
+    </div>
+    <div class="faq-item">
+      <h4>¿Qué métodos de pago aceptan?</h4>
+      <p>Aceptamos transferencias bancarias, tarjetas de crédito/débito y depósitos en OXXO u otras tiendas de conveniencia.</p>
+    </div>
+    <div class="faq-item">
+      <h4>¿Qué pasa si mi producto llega dañado?</h4>
+      <p>¡No te preocupes! Tienes 7 días tras recibir tu paquete para reportar cualquier daño y te lo cambiamos o reembolsamos sin peros.</p>
+    </div>
+  </div>
+</section>
+
+<div class="shipping">
+  <div class="shipping-grid">
+    <div class="ship-item">
+      <span class="ship-icon">🚚</span>
+      <h4>Envío Nacional</h4>
+      <p>A toda la República Mexicana</p>
+    </div>
+    <div class="ship-item">
+      <span class="ship-icon">📦</span>
+      <h4>Empaque Kawaii</h4>
+      <p>Cada pedido llega con amor</p>
+    </div>
+    <div class="ship-item">
+      <span class="ship-icon">🔒</span>
+      <h4>Compra Segura</h4>
+      <p>Tu pedido siempre protegido</p>
+    </div>
+    <div class="ship-item">
+      <span class="ship-icon">💬</span>
+      <h4>Soporte Dedicado</h4>
+      <p>Te ayudamos en todo momento</p>
+    </div>
+  </div>
+</div>
+
+<section class="contact" id="contacto">
+  <div class="section-label"><span>📩 Contacto</span></div>
+  <h2 class="section-title">¡Hablemos!</h2>
+  <p class="section-sub">Tienes dudas, quieres un pedido especial o simplemente quieres saludar. Estamos aquí para ti.</p>
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <h2>Encuéntranos</h2>
+      <p>Somos una tienda en línea con base en Ecatepec. Atendemos pedidos digitalmente y hacemos envíos a todo México. ¡No dudes en escribirnos!</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <span class="ci-icon">📍</span>
+          <div>
+            <h4>Dirección</h4>
+            <p>Av. Busan 143, Col. Ecatepec 21, C.P. 55021<br>Ecatepec de Morelos, Estado de México</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="ci-icon">🕐</span>
+          <div>
+            <h4>Horario de Atención</h4>
+            <p>Lunes a Viernes: 10:00 – 20:00 hrs<br>Sábados: 11:00 – 18:00 hrs</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="ci-icon">📦</span>
+          <div>
+            <h4>Pedidos Personalizados</h4>
+            <p>¿Quieres algo especial? Escríbenos y lo hacemos realidad.</p>
+          </div>
+        </div>
+      </div>
+      <div class="social-row">
+        <a href="#" class="social-btn s-insta">📸 Instagram</a>
+        <a href="#" class="social-btn s-tiktok">🎵 TikTok</a>
+        <a href="#" class="social-btn s-twitter">🐦 Twitter</a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-title">✉️ Envíanos un mensaje</div>
+      <div class="form-group">
+        <label>Tu nombre</label>
+        <input type="text" placeholder="Ej: Valentina García">
+      </div>
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" placeholder="ejemplo@correo.com">
+      </div>
+      <div class="form-group">
+        <label>Tipo de consulta</label>
+        <select>
+          <option>💛 Pedido normal</option>
+          <option>✏️ Pedido personalizado</option>
+          <option>🚚 Información de envío</option>
+          <option>💬 Otra consulta</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tu mensaje</label>
+        <textarea placeholder="Cuéntanos qué necesitas... ¿Buscas algún producto especial? ¿Tienes una duda? ¡Con gusto te ayudamos! 🐾"></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()">💌 Enviar mensaje</button>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <h2>¡Únete a la comunidad! 💜</h2>
+  <p>Suscríbete y recibe primero las nuevas colecciones, ofertas exclusivas y noticias K-pop directamente en tu correo.</p>
+  <div class="newsletter-form">
+    <input type="email" placeholder="tu@correo.com">
+    <button onclick="showToast('💌 ¡Gracias por suscribirte!')">Suscribirme ✨</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-brand">
+      <div class="logo-f">🧸 Tiernitos Asiáticos</div>
+      <p>Tu tienda de confianza para peluches, mini peluches y llaveros inspirados en el K-pop y la cultura kawaii. Hecho con amor desde Ecatepec para toda México.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Catálogo</h4>
+      <ul>
+        <li><a href="#peluches">Peluches K-pop</a></li>
+        <li><a href="#mini">Mini Peluches</a></li>
+        <li><a href="#llaveros">Llaveros</a></li>
+        <li><a href="#contacto">Personalizados</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Nosotros</h4>
+      <ul>
+        <li><a href="#nosotros">Historia</a></li>
+        <li><a href="#nosotros">Misión y Visión</a></li>
+        <li><a href="#promos">Promociones</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ayuda</h4>
+      <ul>
+        <li><a href="#contacto">Envíos</a></li>
+        <li><a href="#contacto">Cambios y Devoluciones</a></li>
+        <li><a href="#preguntas">Preguntas Frecuentes</a></li>
+        <li><a href="#contacto">Pedidos Especiales</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Tiernitos Asiáticos. Todos los derechos reservados.</p>
+    <p class="footer-hearts">Hecho con 💖 para la comunidad K-pop mexicana</p>
+  </div>
+</footer>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// Cart counter
+let cartCount = 0;
+function addToCart(){
+  cartCount++;
+  document.getElementById('cart-count').textContent = cartCount;
+  showToast('🛒 ¡Producto agregado al carrito!');
+}
+
+// Toast
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// Back to top
+window.addEventListener('scroll',()=>{
+  const btn = document.getElementById('back-top');
+  if(window.scrollY > 400) btn.classList.add('visible');
+  else btn.classList.remove('visible');
+});
+
+// Nav scroll style
+window.addEventListener('scroll',()=>{
+  const nav = document.getElementById('navbar');
+  if(window.scrollY > 30) nav.style.boxShadow='0 4px 30px rgba(255,107,157,.18)';
+  else nav.style.boxShadow='0 2px 20px rgba(255,107,157,.12)';
+});
+
+// Mobile menu toggle
+function toggleMenu(){
+  const links = document.querySelector('.nav-links');
+  if(links.style.display === 'flex'){
+    links.style.display = 'none';
+  } else {
+    links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:rgba(255,255,255,.98);padding:20px 5%;gap:18px;border-bottom:2px solid #FFB3CC;backdrop-filter:blur(16px);';
+  }
+}
+
+// Close menu on link click
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    const links = document.querySelector('.nav-links');
+    if(window.innerWidth < 600) links.style.display = 'none';
+  });
+});
+
+// Form submit
+function submitForm(){
+  showToast('💌 ¡Mensaje enviado! Te contactamos pronto 🐾');
+}
+
+// Intersection Observer for animations
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.style.opacity='1';
+  });
+},{threshold:0.1});
+document.querySelectorAll('.product-card,.cat-card,.step,.review,.band-pill,.faq-item').forEach(el=>{
+  el.style.opacity='0';
+  el.style.transition='opacity .5s ease, transform .3s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
